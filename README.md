@@ -44,7 +44,7 @@ No meu dia a dia como estagiário, utilizo o Mendix para:
 ## 📊 Estatísticas do GitHub
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Miguel-1406&show_icons=true&theme=dark&include_all_commits=true" alt="Estatísticas do Miguel" />
+  <img src="https://github-readme-stats-sigma-five.vercel.app/api?username=Miguel-1406&show_icons=true&theme=dark&include_all_commits=true" alt="Estatísticas do Miguel" />
 </p>
 
 <p align="center">
