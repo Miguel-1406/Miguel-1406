@@ -43,8 +43,13 @@ No meu dia a dia como estagiário, utilizo o Mendix para:
 
 ## 📊 Estatísticas do GitHub
 
-![Estatísticas do Miguel](https://github-readme-stats.vercel.app/api?username=Miguel-1406&show_icons=true&theme=dark)
-![Linguagens mais usadas](https://github-readme-stats.vercel.app/api/top-langs/?username=Miguel-1406&layout=compact&theme=dark)
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=Miguel-1406&show_icons=true&theme=dark&include_all_commits=true" alt="Estatísticas do Miguel" />
+</p>
+
+<p align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Miguel-1406&theme=dark" alt="Dias seguidos de código do Miguel" />
+</p>
 
 ---
 
