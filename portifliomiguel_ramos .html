@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miguel Ramos — Dev & BCC</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        display: ['Sora', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: '#090a0f',
+                        card: '#12131a',
+                        accent: {
+                            blue: '#3b82f6',
+                            purple: '#8b5cf6',
+                            green: '#10b981',
+                            grey: '#3f3f46'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090a0f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #27272a;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3b82f6;
+        }
+
+        /* Engineering Grid Background */
+        .grid-bg {
+            background-size: 32px 32px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        }
+
+        /* Subtle Radial Ambient Lights */
+        .ambient-light-1 {
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+        }
+        .ambient-light-2 {
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.06) 0%, transparent 65%);
+        }
+
+        /* Micro Borders and Cards */
+        .bento-card {
+            background-color: rgba(18, 19, 26, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .bento-card:hover {
+            border-color: rgba(255, 255, 255, 0.12);
+            background-color: rgba(18, 19, 26, 0.85);
+            transform: translateY(-2px);
+        }
+
+        /* Interactive active states without heavy glow */
+        .pill-active {
+            background-color: #1e293b !important;
+            border-color: #3b82f6 !important;
+            color: #ffffff !important;
+        }
+    </style>
+</head>
+<body class="bg-dark text-zinc-300 font-sans overflow-x-hidden min-h-screen relative grid-bg">
+
+    <!-- Subtle Background Ambient Lights -->
+    <div class="absolute top-0 left-1/4 w-[800px] h-[600px] ambient-light-1 pointer-events-none z-0"></div>
+    <div class="absolute bottom-10 right-10 w-[600px] h-[600px] ambient-light-2 pointer-events-none z-0"></div>
+
+    <!-- Navbar -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-dark/80 backdrop-blur-md border-b border-white/[0.04] py-4 px-6 md:px-16 flex justify-between items-center">
+        <a href="#" class="font-display font-semibold text-white tracking-tight flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-sm bg-accent-blue animate-pulse"></span>
+            miguel.ramos <span class="text-xs text-zinc-500 font-normal">/ bcc</span>
+        </a>
+        <nav class="hidden md:flex space-x-8 text-xs font-medium tracking-wider uppercase text-zinc-400">
+            <a href="#sobre" class="hover:text-white transition-colors">Perfil</a>
+            <a href="#fluxo" class="hover:text-white transition-colors">Focos de Trabalho</a>
+            <a href="#estatisticas" class="hover:text-white transition-colors">Atividade</a>
+            <a href="#conexao" class="hover:text-white transition-colors">Contato</a>
+        </nav>
+        <a href="#conexao" class="text-xs font-semibold px-4 py-2 rounded bg-zinc-800 hover:bg-zinc-700 text-white border border-white/5 transition-all">
+            Conectar <i class="fa-solid fa-arrow-right ml-1"></i>
+        </a>
+    </header>
+
+    <!-- Main Wrapper -->
+    <main class="relative z-10 pt-32 pb-20 px-6 max-w-6xl mx-auto flex flex-col items-center">
+
+        <!-- Hero / Headline (Humanized & Clean copywriting) -->
+        <section id="sobre" class="w-full text-left max-w-3xl mb-16 md:mb-24">
+            <div class="inline-flex items-center gap-2 bg-zinc-900 border border-white/5 px-3 py-1 rounded-full text-xs text-zinc-400 font-medium mb-6">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-blue opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-accent-blue"></span>
+                </span>
+                Ciência da Computação & Desenvolvimento Corporativo
+            </div>
+            
+            <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-white mb-6 leading-[1.1]">
+                Prazer, Miguel Ramos.
+            </h1>
+            
+            <p class="text-zinc-400 text-base sm:text-lg font-light leading-relaxed mb-6">
+                Estou no primeiro período de Ciência da Computação, unindo as bases teóricas de algoritmo com a automação de negócios na prática como estagiário na <span class="text-white font-medium">Mekatronik</span>.
+            </p>
+            
+            <p class="text-zinc-500 text-sm leading-relaxed max-w-2xl">
+                Divido minha rotina entre a velocidade de entrega do <span class="text-zinc-300">Low-code (Mendix)</span> para fluxos empresariais e a customização detalhada de ferramentas com <span class="text-zinc-300">Python e Javascript</span>.
+            </p>
+        </section>
+
+        <!-- Interactive Ecosystem (Bento Pillar Layout) -->
+        <section id="fluxo" class="w-full mb-20 scroll-mt-24">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-8">
+                <div>
+                    <h2 class="font-display font-semibold text-2xl text-white">Stack & Focos de Estudo</h2>
+                    <p class="text-zinc-500 text-xs mt-1">Interaja com os blocos para entender minhas atribuições e estudos atuais.</p>
+                </div>
+                
+                <!-- Quick filter tags -->
+                <div class="flex flex-wrap gap-2 text-xs">
+                    <button onclick="switchPillar('cs')" id="pill-cs" class="pill-active px-3 py-1.5 rounded border border-white/5 bg-zinc-900/60 hover:bg-zinc-800 transition-all">
+                        Ciência da Computação
+                    </button>
+                    <button onclick="switchPillar('mendix')" id="pill-mendix" class="px-3 py-1.5 rounded border border-white/5 bg-zinc-900/60 hover:bg-zinc-800 transition-all">
+                        Mendix
+                    </button>
+                    <button onclick="switchPillar('python')" id="pill-python" class="px-3 py-1.5 rounded border border-white/5 bg-zinc-900/60 hover:bg-zinc-800 transition-all">
+                        Python
+                    </button>
+                    <button onclick="switchPillar('web')" id="pill-web" class="px-3 py-1.5 rounded border border-white/5 bg-zinc-900/60 hover:bg-zinc-800 transition-all">
+                        Web Dev
+                    </button>
+                </div>
+            </div>
+
+            <!-- Bento Panel Content -->
+            <div class="w-full">
+                
+                <!-- CS Panel -->
+                <div id="panel-cs" class="pillar-panel block bento-card p-6 sm:p-8 rounded-2xl">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="md:col-span-2">
+                            <div class="text-accent-blue text-xs font-semibold tracking-wider uppercase mb-2">Fundamento Acadêmico</div>
+                            <h3 class="font-display font-semibold text-xl text-white mb-4">Ciência da Computação (BCC)</h3>
+                            <p class="text-zinc-400 text-sm leading-relaxed mb-4">
+                                Utilizo a graduação como pilar analítico. Meu foco inicial está em entender profundamente a estrutura de dados, complexidade de algoritmos e as bases teóricas que diferenciam soluções amadoras de arquiteturas de software estáveis.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="bg-zinc-900 text-zinc-400 border border-white/5 px-2.5 py-1 rounded text-xs">Lógica Matemática</span>
+                                <span class="bg-zinc-900 text-zinc-400 border border-white/5 px-2.5 py-1 rounded text-xs">Algoritmos Estruturados</span>
+                                <span class="bg-zinc-900 text-zinc-400 border border-white/5 px-2.5 py-1 rounded text-xs">Ciclo de Software</span>
+                            </div>
+                        </div>
+                        <div class="bg-zinc-900/40 border border-white/5 p-6 rounded-xl flex flex-col justify-between">
+                            <span class="text-xs text-zinc-500 uppercase tracking-widest block mb-4">Ingresso / Status</span>
+                            <div>
+                                <span class="font-display font-bold text-3xl text-white block">1º Período</span>
+                                <span class="text-xs text-emerald-400 mt-1 inline-flex items-center gap-1.5">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Ativo na Faculdade
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mendix Panel -->
+                <div id="panel-mendix" class="pillar-panel hidden bento-card p-6 sm:p-8 rounded-2xl">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="md:col-span-2">
+                            <div class="text-accent-blue text-xs font-semibold tracking-wider uppercase mb-2">Aplicação Prática</div>
+                            <h3 class="font-display font-semibold text-xl text-white mb-4">Desenvolvimento Mendix Low-Code</h3>
+                            <p class="text-zinc-400 text-sm leading-relaxed mb-4">
+                                No meu cotidiano de estágio na Mekatronik, uso Mendix para criar plataformas corporativas (B2B) ágeis. O low-code permite abstrair infraestruturas complexas e focar exatamente nas regras e fluxos de negócio do cliente.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="bg-zinc-900 text-zinc-400 border border-white/5 px-2.5 py-1 rounded text-xs">Modelagem de Dados Relacional</span>
+                                <span class="bg-zinc-900 text-zinc-400 border border-white/5 px-2.5 py-1 rounded text-xs">Microflows & Integrações</span>
+                                <span class="bg-zinc-900 text-zinc-400 border border-white/5 px-2.5 py-1 rounded text-xs">Automação de Processos B2B</span>
+                            </div>
+                        </div>
+                        <div class="bg-zinc-900/40 border border-white/5 p-6 rounded-xl flex flex-col justify-between">
+                            <span class="text-xs text-zinc-500 uppercase tracking-widest block mb-4">Rotina Mekatronik</span>
+                            <div>
+                                <span class="font-display font-bold text-2xl text-white block">Automação de Processos</span>
+                                <span class="text-xs text-zinc-400 mt-1 block">Foco em produtividade e redução de gargalos organizacionais.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Python Panel -->
+                <div id="panel-python" class="pillar-panel hidden bento-card p-6 sm:p-8 rounded-2xl">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="md:col-span-2">
+                            <div class="text-accent-blue text-xs font-semibold tracking-wider uppercase mb-2">Automação Customizada</div>
+                            <h3 class="font-display font-semibold text-xl text-white mb-4">Lógica de Backend com Python</h3>
+                            <p class="text-zinc-400 text-sm leading-relaxed mb-4">
+                                Minha linguagem preferida para scripts autônomos, processamento e modelagem de dados que o low-code por si só não atende. Escrevo códigos sob o padrão Clean Code visando performance e facilidade de manutenção.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="bg-zinc-900 text-zinc-400 border border-white/5 px-2.5 py-1 rounded text-xs">Automação de Scripts</span>
+                                <span class="bg-zinc-900 text-zinc-400 border border-white/5 px-2.5 py-1 rounded text-xs">Bancos de Dados</span>
+                                <span class="bg-zinc-900 text-zinc-400 border border-white/5 px-2.5 py-1 rounded text-xs">Tratamento de Dados</span>
+                            </div>
+                        </div>
+                        <div class="bg-zinc-900/40 border border-white/5 p-6 rounded-xl flex flex-col justify-between">
+                            <span class="text-xs text-zinc-500 uppercase tracking-widest block mb-4">Preferência Própria</span>
+                            <div>
+                                <span class="font-display font-bold text-3xl text-white block">Clean Code</span>
+                                <span class="text-xs text-zinc-400 mt-1 block">Buscando modularidade e manutenibilidade.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Panel -->
+                <div id="panel-web" class="pillar-panel hidden bento-card p-6 sm:p-8 rounded-2xl">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="md:col-span-2">
+                            <div class="text-accent-blue text-xs font-semibold tracking-wider uppercase mb-2">Interfaces de Interface</div>
+                            <h3 class="font-display font-semibold text-xl text-white mb-4">Front-End: HTML, CSS & JS ES6+</h3>
+                            <p class="text-zinc-400 text-sm leading-relaxed mb-4">
+                                Construindo interfaces responsivas elegantes. Acredito que a interface do usuário precisa ser intuitiva, rápida e limpa. Meus estudos envolvem a escrita de Javascript estruturado e estilizações modernas sem excessos.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="bg-zinc-900 text-zinc-400 border border-white/5 px-2.5 py-1 rounded-xs flex items-center gap-1.5 text-xs">
+                                    <i class="fa-brands fa-html5 text-orange-500"></i> HTML
+                                </span>
+                                <span class="bg-zinc-900 text-zinc-400 border border-white/5 px-2.5 py-1 rounded-xs flex items-center gap-1.5 text-xs">
+                                    <i class="fa-brands fa-css3-alt text-blue-500"></i> CSS
+                                </span>
+                                <span class="bg-zinc-900 text-zinc-400 border border-white/5 px-2.5 py-1 rounded-xs flex items-center gap-1.5 text-xs">
+                                    <i class="fa-brands fa-js text-yellow-500"></i> Javascript ES6+
+                                </span>
+                            </div>
+                        </div>
+                        <div class="bg-zinc-900/40 border border-white/5 p-6 rounded-xl flex flex-col justify-between">
+                            <span class="text-xs text-zinc-500 uppercase tracking-widest block mb-4">Filosofia de Design</span>
+                            <div>
+                                <span class="font-display font-bold text-2xl text-white block">Fidelidade Visual</span>
+                                <span class="text-xs text-zinc-400 mt-1 block">Menos ruído visual, melhor usabilidade.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Bento Activity & Stats (No fake elements or AI-cliché graphics) -->
+        <section id="estatisticas" class="w-full mb-20 scroll-mt-24">
+            <h2 class="font-display font-semibold text-2xl text-white mb-6">Atividade Real de Codificação</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                
+                <!-- Bento Grid Left - Dev Focuses (Replaces mock graphs) -->
+                <div class="bento-card p-6 rounded-2xl flex flex-col justify-between lg:col-span-2">
+                    <div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <i class="fa-solid fa-code-commit text-accent-blue text-sm"></i>
+                            <h3 class="font-display font-medium text-white text-sm">Organização de Estudos & Projetos</h3>
+                        </div>
+                        <p class="text-zinc-400 text-sm mb-6 leading-relaxed">
+                            Mantenho meu desenvolvimento documentado em repositórios pessoais no GitHub. Utilizo práticas corretas de commits estruturados, organização em branches e versionamento constante.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div class="bg-zinc-900/50 border border-white/5 p-4 rounded-xl">
+                                <span class="text-xs text-zinc-500 uppercase block mb-1">Python</span>
+                                <span class="font-semibold text-white text-sm">Projetos & Lógica</span>
+                            </div>
+                            <div class="bg-zinc-900/50 border border-white/5 p-4 rounded-xl">
+                                <span class="text-xs text-zinc-500 uppercase block mb-1">Web Front</span>
+                                <span class="font-semibold text-white text-sm">UI e Landing Pages</span>
+                            </div>
+                            <div class="bg-zinc-900/50 border border-white/5 p-4 rounded-xl">
+                                <span class="text-xs text-zinc-500 uppercase block mb-1">Git Version</span>
+                                <span class="font-semibold text-white text-sm">Foco em boas práticas</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="border-t border-white/5 pt-4 mt-6 flex justify-between items-center text-xs">
+                        <span class="text-zinc-500">Repositórios organizados individualmente</span>
+                        <a href="https://github.com/Miguel-1406" target="_blank" class="text-accent-blue hover:underline font-semibold flex items-center gap-1">
+                            GitHub <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Bento Grid Right - Quick Summary Block -->
+                <div class="bento-card p-6 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <i class="fa-solid fa-bullseye text-accent-purple text-sm"></i>
+                            <h3 class="font-display font-medium text-white text-sm">Mentalidade Dev</h3>
+                        </div>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-4">
+                            "A engenharia de software inteligente existe para resolver problemas operacionais e não o oposto. Busco entender o negócio antes de propor o código."
+                        </p>
+                    </div>
+                    
+                    <div class="bg-zinc-900/40 border border-white/5 p-4 rounded-xl">
+                        <span class="text-xs text-zinc-400 font-medium block mb-2">Interesses atuais:</span>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="bg-zinc-900 text-zinc-400 text-[10px] px-2 py-0.5 rounded">REST APIs</span>
+                            <span class="bg-zinc-900 text-zinc-400 text-[10px] px-2 py-0.5 rounded">CI/CD</span>
+                            <span class="bg-zinc-900 text-zinc-400 text-[10px] px-2 py-0.5 rounded">Estruturas B2B</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Elegant Contact Block -->
+        <section id="conexao" class="w-full max-w-4xl mx-auto scroll-mt-24">
+            <div class="bento-card p-8 md:p-12 rounded-3xl relative overflow-hidden text-center">
+                <h2 class="font-display font-semibold text-3xl text-white mb-3">Interessado em construir algo juntos?</h2>
+                <p class="text-zinc-400 text-sm max-w-lg mx-auto mb-8 leading-relaxed">
+                    Estou sempre aberto para conversar sobre as capacidades do Mendix, arquiteturas Python customizadas ou novas oportunidades de estágio e colaborações técnicas.
+                </p>
+
+                <!-- Clean Link List -->
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-3 relative z-10">
+                    <a href="https://www.linkedin.com/in/pro-miguelramos" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#0077B5] hover:bg-[#00669c] text-white text-xs font-semibold px-5 py-3 rounded transition-all">
+                        <i class="fa-brands fa-linkedin text-base"></i> LinkedIn
+                    </a>
+                    
+                    <a href="https://github.com/Miguel-1406" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white text-xs font-semibold px-5 py-3 rounded border border-white/5 transition-all">
+                        <i class="fa-brands fa-github text-base"></i> GitHub
+                    </a>
+                    
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=miguelramoscouto@gmail.com" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-zinc-900 hover:bg-zinc-800 text-accent-blue text-xs font-semibold px-5 py-3 rounded border border-white/5 transition-all">
+                        <i class="fa-solid fa-envelope text-base"></i> Escrever E-mail (Gmail)
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 border-t border-white/[0.04] py-8 text-center text-xs text-zinc-500 bg-dark/20">
+        <p>© 2026 Miguel Ramos — Acadêmico de Ciência da Computação e Desenvolvedor.</p>
+    </footer>
+
+    <!-- Interactive JS to manage Tech Flow Node Switching -->
+    <script>
+        function switchPillar(pillarId) {
+            // Remove active classes from all filter buttons
+            document.querySelectorAll('[id^="pill-"]').forEach(btn => {
+                btn.classList.remove('pill-active');
+            });
+
+            // Hide all detail panels
+            document.querySelectorAll('.pillar-panel').forEach(panel => {
+                panel.classList.add('hidden');
+                panel.classList.remove('block');
+            });
+
+            // Add active class to clicked filter
+            const activePill = document.getElementById(`pill-${pillarId}`);
+            if (activePill) {
+                activePill.classList.add('pill-active');
+            }
+
+            // Show active detail panel with standard smooth transition
+            const activePanel = document.getElementById(`panel-${pillarId}`);
+            if (activePanel) {
+                activePanel.classList.remove('hidden');
+                activePanel.classList.add('block');
+            }
+        }
+    </script>
+</body>
+</html>
