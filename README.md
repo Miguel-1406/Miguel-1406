@@ -26,7 +26,7 @@ Buscando soluções eficientes através da tecnologia, combinando a base acadêm
 
 ## 🎯 No meu radar (O que estou aprendendo atualmente)
 
-- 💻 **Desenvolvimento Web (Front-End):** Construindo minha base em **HTML5, CSS3 e JavaScript**.
+- 💻 **Desenvolvimento Web (Front-End):** Construindo minha base em **HTML, CSS e JavaScript**.
 - 🐍 **Lógica e Backend:** Aprofundando estudos em **Python** e integração de APIs.
 - 📐 **Fundamentos:** Estruturas de Dados e Algoritmos aplicados na faculdade.
 
